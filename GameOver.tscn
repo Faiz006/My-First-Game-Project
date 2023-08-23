@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ASSETS/fonts/KiriFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ASSETS/fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://MainMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 130
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+outline_size = 5
+outline_color = Color( 0.705882, 0.0588235, 0.0588235, 1 )
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1279.0
+margin_bottom = 799.0
+color = Color( 0.501961, 0.0588235, 0.0588235, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 120.0
+margin_top = 123.0
+margin_right = 1158.0
+margin_bottom = 307.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.541176, 0.180392, 0.180392, 1 )
+custom_colors/font_color_shadow = Color( 0.694118, 0.117647, 0.117647, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER!"
+
+[node name="MainMenu" type="Button" parent="."]
+margin_left = 393.0
+margin_top = 376.0
+margin_right = 851.0
+margin_bottom = 496.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "MAIN MENU"
+flat = true
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="MainMenu" to="MainMenu" method="_on_MainMenu_pressed"]

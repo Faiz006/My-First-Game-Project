@@ -1,0 +1,257 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://ASSETS/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ASSETS/fonts/KiriFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ASSETS/UI/arrow-UP.png" type="Texture" id=3]
+[ext_resource path="res://ASSETS/UI/grey_button04.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/player/platformChar_walk2.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/coin/gold_1.png" type="Texture" id=6]
+[ext_resource path="res://ASSETS/enemies/slimeBlue.png" type="Texture" id=7]
+[ext_resource path="res://PlayButton.gd" type="Script" id=8]
+[ext_resource path="res://ASSETS/music/Swinging Pants.ogg" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 131
+outline_size = 4
+outline_color = Color( 0.227451, 0.917647, 0.0352941, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.027451, 0.152941, 0.470588, 1 )
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=5]
+size = 51
+outline_size = 2
+outline_color = Color( 0.0823529, 0.0117647, 0.0117647, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 38
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 42
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 38
+outline_size = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 51
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 80
+outline_size = 12
+outline_color = Color( 0.0470588, 0.686275, 0.231373, 1 )
+font_data = ExtResource( 2 )
+
+[node name="TitleMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 800.0
+color = Color( 0.113725, 0.027451, 0.470588, 1 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.0509804, 0.74902, 0.901961, 1 )
+margin_left = 210.0
+margin_top = 137.0
+margin_right = 1107.0
+margin_bottom = 294.0
+custom_fonts/font = SubResource( 1 )
+text = "2D Game!!!"
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 55.0
+margin_top = 451.0
+margin_right = 545.0
+margin_bottom = 730.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="CONTROLS" type="Label" parent="Panel"]
+margin_left = 65.0
+margin_top = 13.0
+margin_right = 432.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0.941176, 0.976471, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "CONTROLS:"
+
+[node name="spacebar" type="TextureRect" parent="Panel"]
+margin_left = 69.0
+margin_top = 80.0
+margin_right = 246.0
+margin_bottom = 139.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="=JUMP" type="Label" parent="Panel/spacebar"]
+margin_left = 186.0
+margin_top = 5.0
+margin_right = 325.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 3 )
+text = "= JUMP"
+
+[node name="SPACE" type="Label" parent="Panel/spacebar"]
+anchor_top = -0.075
+anchor_bottom = -0.075
+margin_left = 26.0
+margin_top = 10.425
+margin_right = 148.0
+margin_bottom = 57.425
+custom_colors/font_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "SPACE"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+margin_left = 78.0
+margin_top = 190.0
+margin_right = 146.0
+margin_bottom = 242.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Arrow-Left" type="Sprite" parent="Panel/TextureRect"]
+position = Vector2( 31, 28 )
+rotation = -1.5708
+scale = Vector2( 0.0425, 0.0446875 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Panel/TextureRect"]
+margin_left = 178.0
+margin_top = -4.0
+margin_right = 330.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 6 )
+text = "= MOVE"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+margin_left = 163.0
+margin_top = 190.0
+margin_right = 231.0
+margin_bottom = 242.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Arrow-Right" type="Sprite" parent="Panel/TextureRect2"]
+position = Vector2( 33, 27 )
+rotation = 1.5708
+scale = Vector2( 0.0425, 0.0446875 )
+texture = ExtResource( 3 )
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 755.0
+margin_top = 451.0
+margin_right = 1245.0
+margin_bottom = 730.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="You" type="Label" parent="Panel2"]
+margin_left = 93.0
+margin_top = 95.0
+margin_right = 205.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 8 )
+text = "=You!"
+
+[node name="SlimeBlue" type="Sprite" parent="Panel2/You"]
+position = Vector2( 178, 26 )
+texture = ExtResource( 7 )
+
+[node name="Enemy" type="Label" parent="Panel2/You/SlimeBlue"]
+margin_left = 29.0
+margin_top = -26.0
+margin_right = 197.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 9 )
+text = "=Enemy!"
+
+[node name="Collect" type="Label" parent="Panel2"]
+margin_left = 36.0
+margin_top = 156.0
+margin_right = 457.0
+margin_bottom = 219.0
+custom_fonts/font = SubResource( 10 )
+text = "Collect 35      to win!"
+
+[node name="Gold1" type="Sprite" parent="Panel2/Collect"]
+position = Vector2( 250, 24 )
+scale = Vector2( 0.559524, 0.52381 )
+texture = ExtResource( 6 )
+
+[node name="Label2" type="Label" parent="Panel2"]
+margin_left = 8.0
+margin_top = 213.0
+margin_right = 480.0
+margin_bottom = 268.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "You have only one life line !"
+
+[node name="ITEMS" type="Label" parent="."]
+margin_left = 903.0
+margin_top = 465.0
+margin_right = 1112.0
+margin_bottom = 517.0
+rect_rotation = -0.131008
+custom_colors/font_color = Color( 0.941176, 0.976471, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "ITEMS:"
+
+[node name="PlatformCharWalk2" type="Sprite" parent="."]
+position = Vector2( 810, 556 )
+texture = ExtResource( 5 )
+
+[node name="PlayButton" type="Button" parent="."]
+modulate = Color( 0, 1, 0.25098, 1 )
+margin_left = 483.0
+margin_top = 320.0
+margin_right = 832.0
+margin_bottom = 435.0
+custom_colors/font_color_disabled = Color( 0.94902, 0.027451, 0.317647, 1 )
+custom_colors/font_color_focus = Color( 0.976471, 0.545098, 0.0156863, 1 )
+custom_colors/font_color = Color( 0.290196, 1, 0, 1 )
+custom_colors/font_color_hover = Color( 0.796078, 0.945098, 0.0196078, 1 )
+custom_colors/font_color_pressed = Color( 0.843137, 0.0470588, 0.878431, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "PLAY!"
+flat = true
+script = ExtResource( 8 )
+
+[node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
